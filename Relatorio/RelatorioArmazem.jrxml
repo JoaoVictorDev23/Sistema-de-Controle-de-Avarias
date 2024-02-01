@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioGeral" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3f9cbbc-a825-4a37-8d42-08a4866d42ef">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="ireport.zoom" value="1.502629601803182"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="91008dfd-a2a2-46a9-a6a9-e920798a78ce"/>
+	<parameter name="armazem" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    dbo.tbavarias.avaria_numeronfe,
+    dbo.tbproduto.produto_nome,
+    dbo.tbproduto.produto_valor,
+    dbo.tbestoque_produtos.est_armazem,
+    dbo.tbestoque_produtos.est_quantidade
+FROM
+    dbo.tbestoque_produtos
+INNER JOIN
+    dbo.tbavarias ON dbo.tbestoque_produtos.est_avaria_numeronfe = dbo.tbavarias.avaria_numeronfe
+INNER JOIN
+    dbo.tbproduto ON dbo.tbestoque_produtos.est_produto_id = dbo.tbproduto.produto_id
+WHERE
+    dbo.tbestoque_produtos.est_armazem = $P{armazem}
+GROUP BY
+    dbo.tbavarias.avaria_numeronfe,
+    dbo.tbproduto.produto_nome,
+    dbo.tbproduto.produto_valor,
+    dbo.tbestoque_produtos.est_armazem,
+    dbo.tbestoque_produtos.est_quantidade;]]>
+	</queryString>
+	<field name="avaria_numeronfe" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="avaria_numeronfe"/>
+		<property name="com.jaspersoft.studio.field.label" value="avaria_numeronfe"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbavarias"/>
+	</field>
+	<field name="produto_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="produto_nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="produto_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbproduto"/>
+	</field>
+	<field name="produto_valor" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="produto_valor"/>
+		<property name="com.jaspersoft.studio.field.label" value="produto_valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbproduto"/>
+	</field>
+	<field name="est_armazem" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="est_armazem"/>
+		<property name="com.jaspersoft.studio.field.label" value="est_armazem"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbestoque_produtos"/>
+	</field>
+	<field name="est_quantidade" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="est_quantidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="est_quantidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbestoque_produtos"/>
+	</field>
+	<group name="Armazem">
+		<groupExpression><![CDATA[$F{est_armazem}]]></groupExpression>
+		<groupHeader>
+			<band height="83">
+				<staticText>
+					<reportElement x="1" y="15" width="100" height="20" uuid="4a8ff77e-913a-44cd-b7ae-4ee737b977fe"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome do Armazém:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="101" y="15" width="100" height="19" uuid="cc6cb60e-21b7-459a-bfed-e60e9e3bf2f6"/>
+					<textFieldExpression><![CDATA[$F{est_armazem}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="55" width="555" height="1" uuid="4cb5a101-97e5-41a3-9abd-8dcc09f68911"/>
+				</line>
+				<line>
+					<reportElement x="0" y="56" width="1" height="26" uuid="87e09c7b-1f77-4963-8dc6-0fad4617c820"/>
+				</line>
+				<line>
+					<reportElement x="0" y="82" width="555" height="1" uuid="e3be8c6d-2038-4759-adec-289254c614d3"/>
+				</line>
+				<line>
+					<reportElement x="555" y="55" width="1" height="28" uuid="c66099e9-7c45-48f9-a4e9-9e4941c68ccc"/>
+				</line>
+				<line>
+					<reportElement x="101" y="56" width="1" height="27" uuid="bc3bf5d6-14b8-406a-a195-47f9caabd665"/>
+				</line>
+				<line>
+					<reportElement x="240" y="55" width="1" height="27" uuid="f92e08b9-edd5-482f-b0fe-b93822b18811"/>
+				</line>
+				<line>
+					<reportElement x="392" y="55" width="1" height="28" uuid="bcd7fedb-1ea1-49d4-80dd-f233d434e223"/>
+				</line>
+				<staticText>
+					<reportElement x="0" y="60" width="101" height="23" uuid="0f379392-eed1-428c-a0d4-f433066a7ab6"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome do Produto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="102" y="60" width="138" height="20" uuid="207bddf0-984f-4ef3-911d-91eccea71406"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valor Unitario]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="241" y="60" width="151" height="20" uuid="0f033ac7-a23e-426d-9a21-88e9eb0945f5"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantidade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="393" y="60" width="162" height="20" uuid="13aff455-e59d-4c52-ae17-8ee83ea3aab4"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Número NF-e]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<line>
+				<reportElement x="160" y="-20" width="1" height="99" uuid="22f03a6b-9bd0-47df-8772-796aba323494"/>
+			</line>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="340" y="60" width="224" height="20" uuid="556de5fb-629b-43a3-928a-6d78abd6080b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Relatório gerado em: "+ new java.text.SimpleDateFormat("dd/MM/yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="-10" width="300" height="30" uuid="45bba2b2-074b-41f0-afa7-a080bf3a1f6b"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Sistema de Controle de Avarias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="20" width="240" height="30" uuid="6bbaae77-6442-4ca9-a98c-5963a13481d1"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Relatório de Estoque]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="79" width="595" height="1" uuid="2b4aad9e-aa5b-45b7-9bda-53bfa3d7bae5"/>
+			</line>
+			<image>
+				<reportElement x="-20" y="0" width="178" height="60" uuid="84ac2ded-ca57-47cc-b1cf-b0ebeec19ce3"/>
+				<imageExpression><![CDATA["C:\\Sistema de Avarias\\Images\\tdmtransporte.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="1" height="26" uuid="08410446-4f0f-4619-99fe-2c52fe0d72c2"/>
+			</line>
+			<line>
+				<reportElement x="555" y="0" width="1" height="26" uuid="033a9188-ade0-4034-a885-ad06760f896b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="26" width="556" height="1" uuid="0392ac78-6a47-487c-8362-f7e79d72afda"/>
+			</line>
+			<line>
+				<reportElement x="101" y="-1" width="1" height="28" uuid="c77f8b64-560c-4311-9e86-c161e3d49e77"/>
+			</line>
+			<line>
+				<reportElement x="240" y="-1" width="1" height="28" uuid="ef7e0da6-4b72-41db-8665-aed3469e0762"/>
+			</line>
+			<line>
+				<reportElement x="392" y="0" width="1" height="27" uuid="2b008e55-04ef-41ce-ad39-213792fd96d8"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="27" uuid="8704460f-ef46-4fc7-8468-6e35939c4711"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{produto_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="138" height="26" uuid="7b72280f-3b85-45db-93bb-2e226353e60d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{produto_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="0" width="151" height="26" uuid="826c4ac3-e1ac-4768-ae92-c2b7ccf397bb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{est_quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="162" height="26" uuid="637a9981-881a-4701-ada8-a71b7cdbb4b3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{avaria_numeronfe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="29" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
