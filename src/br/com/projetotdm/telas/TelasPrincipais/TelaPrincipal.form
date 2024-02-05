@@ -99,7 +99,6 @@
         <Menu class="javax.swing.JMenu" name="menurelatorios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relatorios"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

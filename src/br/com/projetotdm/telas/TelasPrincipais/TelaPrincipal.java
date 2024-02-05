@@ -303,7 +303,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(menupesquisas);
 
         menurelatorios.setText("Relatorios");
-        menurelatorios.setEnabled(false);
 
         menuservico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
         menuservico.setText("Armazém");

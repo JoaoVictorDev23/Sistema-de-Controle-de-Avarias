@@ -633,7 +633,7 @@ public class TelaAvarias extends javax.swing.JInternalFrame {
 
                             // Configurar o editor personalizado para a coluna "Situação"
                             int situacaoColumnIndex = tableModel.findColumn("Situação");
-                            tbl_avarias_produtos.getColumnModel().getColumn(situacaoColumnIndex).setCellEditor(new ComboBoxCellEditor(new String[]{"Venda", "Prejuizo", "Em estoque", "Descarte", "Devolução"}));
+                            tbl_avarias_produtos.getColumnModel().getColumn(situacaoColumnIndex).setCellEditor(new ComboBoxCellEditor(new String[]{"Venda", "Prejuizo", "Em estoque", "Descarte", "Devolução", "Falta Procede"}));
 
                             // Configurar o editor personalizado para a coluna "Não Permite Venda"
                             int naoPermiteVendaColumnIndex = tableModel.findColumn("Não Permite Venda");
@@ -817,7 +817,7 @@ public class TelaAvarias extends javax.swing.JInternalFrame {
 
                         // Configurar o editor personalizado para a coluna "Situação"
                         int situacaoColumnIndex = tableModel.findColumn("Situação");
-                        tbl_avarias_produtos.getColumnModel().getColumn(situacaoColumnIndex).setCellEditor(new ComboBoxCellEditor(new String[]{"Venda", "Prejuizo", "Em estoque", "Descarte", "Devolução"}));
+                        tbl_avarias_produtos.getColumnModel().getColumn(situacaoColumnIndex).setCellEditor(new ComboBoxCellEditor(new String[]{"Venda", "Prejuizo", "Em estoque", "Descarte", "Devolução","Falta Procede"}));
 
                         // Configurar o editor personalizado para a coluna "Não Permite Venda"
                         int naoPermiteVendaColumnIndex = tableModel.findColumn("Não Permite Venda");
@@ -1254,6 +1254,11 @@ public class TelaAvarias extends javax.swing.JInternalFrame {
 
         box_avarias_armazem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OUTROS", "FILIAL Açailândia", "FILIAL Alagoinhas", "FILIAL Alexânia", "FILIAL Amparo", "FILIAL Anápolis", "FILIAL Aparecida de Goiânia", "FILIAL Barra Mansa", "FILIAL Belém", "FILIAL Brasília", "FILIAL Cariacica", "FILIAL Campo Grande", "FILIAL Campina Grande", "FILIAL Caucaia", "FILIAL Colatina/ES", "FILIAL Contagem/MG", "FILIAL Corumbaíba", "FILIAL Cuiabá", "FILIAL Dourados/MS", "FILIAL Feira de Santana", "FILIAL Fortaleza", "FILIAL Imperatriz", "FILIAL Itajaí", "FILIAL Itu", "FILIAL Itumbiara", "FILIAL Itupeva", "FILIAL Jacareí", "FILIAL Jaguariúna", "FILIAL Jaboatão dos Guararapes", "FILIAL Jarinu", "FILIAL Juiz de Fora", "FILIAL Luziânia", "FILIAL Minaçu", "FILIAL Marabá", "FILIAL Montes Claros", "FILIAL Parauapebas", "FILIAL Piracicaba", "FILIAL Parnamirim/RN", "FILIAL Ponta Grossa", "FILIAL Ribeirão Preto", "FILIAL Rio de Janeiro", "FILIAL São Luís", "FILIAL Simões Filho", "FILIAL Serra/ES", "FILIAL Teresina/PI", "FILIAL Uberaba", "FILIAL Várzea Grande", "OP APT LOGISTICA - Dourados/MS", "OP AD Transportes - Parobé/RS", "OP CALEGARIO - Colatina/ES", "OP FEC - Feira de Santana/BA", "OP JAND LOG - Jandira/SP", "OP LOGUS - Teresina/PI", "OP MAGNA LOG - Aparecida de Goiânia/GO", "OP MK TRANSPORTES - Campo Grande/MS", "OP PALETIZAR - Jaboatão dos Guararapes/BA", "OP PHEX - Cuiabá/MT", "OP ROTA BAHIA - Simões Bahia/BA", "OP SAMMEX - Parnamirim/RN", "OP TEIXEIRA - Caruaru/BA", "OP TRANSATLANTICA - Marabá/PA", "OP TRANSFORTES - Contagem/MG", "OP TRANSLAPAS - Rio de Janeiro/RJ", "OP TRANSMEDEIROS", "OP TRD - Serra/ES", "OP VAPT VUPT" }));
         box_avarias_armazem.setToolTipText("Estado");
+        box_avarias_armazem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                box_avarias_armazemActionPerformed(evt);
+            }
+        });
 
         lbl_avaria_armazem.setText("Armazem:");
         lbl_avaria_armazem.setToolTipText("null");
@@ -1966,6 +1971,10 @@ public class TelaAvarias extends javax.swing.JInternalFrame {
         fornecedor.setTelaAvarias(this);
         fornecedor.setVisible(true);
     }//GEN-LAST:event_btn_avarias_clienteActionPerformed
+
+    private void box_avarias_armazemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_avarias_armazemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_box_avarias_armazemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
